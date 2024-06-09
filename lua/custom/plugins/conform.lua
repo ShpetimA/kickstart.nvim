@@ -1,4 +1,5 @@
-return { -- Autoformat
+return {
+  -- Autoformat
   'stevearc/conform.nvim',
   lazy = false,
   keys = {
@@ -14,22 +15,29 @@ return { -- Autoformat
   opts = {
     notify_on_error = false,
     format_on_save = function(bufnr)
-      -- Disable "format_on_save lsp_fallback" for languages that don't
-      -- have a well standardized coding style. You can add additional
-      -- languages here or re-enable it for the disabled ones.
-      local disable_filetypes = { c = true, cpp = true }
+      -- Disable "format_on_save lsp_fallback" for specified file types
+      local disable_filetypes = {
+        c = true,
+        cpp = true,
+        javascript = true,
+        typescript = true,
+        typescriptreact = true,
+        javascriptreact = true,
+      }
+      local filetype = vim.bo[bufnr].filetype
+      if disable_filetypes[filetype] then
+        return false -- Disable formatting on save for these file types
+      end
       return {
         timeout_ms = 500,
-        lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+        lsp_fallback = true,
       }
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
       -- Conform can also run multiple formatters sequentially
       python = { 'isort', 'black' },
-      --
-      -- You can use a sub-list to tell conform to run *until* a formatter
-      -- is found.
+      -- You can use a sub-list to tell conform to run *until* a formatter is found
       typescriptreact = { { 'prettierd', 'prettier' } },
       typescript = { { 'prettierd', 'prettier' } },
       javascriptreact = { { 'prettierd', 'prettier' } },
