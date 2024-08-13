@@ -68,6 +68,7 @@ return { -- LSP Configuration & Plugins
       gopls = {},
       pyright = {},
       tsserver = {},
+      zls = {},
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
