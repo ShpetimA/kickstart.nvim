@@ -173,7 +173,7 @@ M.other = {
 -- Key Mappings (Normal Mode)
 vim.keymap.set("n", "[d", M.other.prevDiagnostic, { desc = "Previous Diagnostic" })
 vim.keymap.set("n", "]d", M.other.nextDiagnostic, { desc = "Next Diagnostic" })
-vim.keymap.set("n", "<leader>q", M.other.showAllEditors, { desc = "Show All Editors" })
+vim.keymap.set("n", "<leader>p", M.other.showAllEditors, { desc = "Show All Editors" })
 vim.keymap.set("n", "<leader>wq", M.other.writeQuit, { desc = "Write and Quit" })
 vim.keymap.set("n", "<leader>/", M.other.clearSearchHighlight, { desc = "Clear Search Highlight" })
 
@@ -186,7 +186,7 @@ M.editor = {
     quickFix = function()
         vim.fn.VSCodeNotify("editor.action.quickFix")
     end,
-    rename = function ()
+    rename = function()
         vim.fn.VSCodeNotify("editor.action.rename")
     end
 }
@@ -194,4 +194,3 @@ M.editor = {
 vim.keymap.set("n", "<leader>f", M.editor.formatDocument, { desc = "Format Document" })
 vim.keymap.set("n", "<leader>ca", M.editor.quickFix, { desc = "Quick Fix" })
 vim.keymap.set("n", "<leader>re", M.editor.rename, { desc = "Rename Symbol" })
-
