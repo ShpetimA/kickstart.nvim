@@ -156,6 +156,9 @@ M.other = {
         vim.fn.VSCodeNotify("workbench.action.files.save")
         vim.fn.VSCodeNotify("workbench.action.closeActiveEditor")
     end,
+    showReferences = function ()
+        vim.fn.VSCodeNotify("editor.action.referenceSearch.trigger")
+    end,
     showAllEditors = function()
         vim.fn.VSCodeNotify("workbench.action.showAllEditors")
     end,
@@ -176,6 +179,7 @@ vim.keymap.set("n", "]d", M.other.nextDiagnostic, { desc = "Next Diagnostic" })
 vim.keymap.set("n", "<leader>p", M.other.showAllEditors, { desc = "Show All Editors" })
 vim.keymap.set("n", "<leader>wq", M.other.writeQuit, { desc = "Write and Quit" })
 vim.keymap.set("n", "<leader>/", M.other.clearSearchHighlight, { desc = "Clear Search Highlight" })
+vim.keymap.set("n", "<leader>sr", M.other.showReferences, { desc = "Show References" })
 
 
 -- General Editor Actions (VS Code)
