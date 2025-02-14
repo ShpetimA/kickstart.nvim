@@ -11,8 +11,8 @@ vim.keymap.set('n', '<leader>w', ':w<CR><C-c>')
 
 vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
 vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
-vim.keymap.set('n', 'n', 'n:sleep 20m<CR>zzzv', opts)
-vim.keymap.set('n', 'N', 'N:sleep 20m<CR>zzzv', opts)
+vim.keymap.set('n', 'n', 'n<CR>zzzv', opts)
+vim.keymap.set('n', 'N', 'N<CR>zzzv', opts)
 
 
 vim.keymap.set({ 'n', 'v' }, '<S-j>', '5j')
